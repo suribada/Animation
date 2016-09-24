@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="animations">
+        <item >LEFT TO RIGTH</item>
+        <item >RIGTH TO LEFT</item>
+        <item >GROW</item>
+        <item >SHRINK</item>
+        <item >TRANSPARENT</item>
+        <item >OPAGUE</item>
+        <item >MULTI ANIM</item>
+        <item >CUSTOM ANIM</item>
+        <item >NORMAL(No Wrapper)</item>
+    </string-array>
+</resources>
