@@ -1,6 +1,7 @@
 package com.suribada.animation;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
 
 /**
@@ -19,8 +20,22 @@ public class ViewProperyAnimatorWrapper {
                     viewPropertyAnimator.alpha(each.to);
                     break;
                 case TRANSLATION_X:
-                    target.setTranslationX(each.from);
-                    viewPropertyAnimator.translationX(each.to);
+                   if (each == ViewProperty.LEFT_IN) {
+                       target.setTranslationX(-target.getRight());
+                        viewPropertyAnimator.translationX(0.0f);
+                    } else if (each == ViewProperty.RIGHT_IN ) {
+                       target.setTranslationX(getDistance(target));
+                       viewPropertyAnimator.translationX(0.0f);
+                   } else if (each ==ViewProperty.LEFT_OUT) {
+                       target.setTranslationX(0.0f);
+                       viewPropertyAnimator.translationX(-target.getRight());
+                    } else if (each == ViewProperty.RIGHT_OUT) {
+                        target.setTranslationX(0.0f);
+                        viewPropertyAnimator.translationX(getDistance(target));
+                    } else {
+                        target.setTranslationX(each.from);
+                        viewPropertyAnimator.translationX(each.to);
+                    }
                     break;
                 case TRANSLATION_Y:
                     target.setTranslationY(each.from);
@@ -35,6 +50,11 @@ public class ViewProperyAnimatorWrapper {
             }
         }
         return viewPropertyAnimator;
+    }
+
+    private static int getDistance(View target) {
+        ViewGroup parent = (ViewGroup) target.getParent();
+        return  parent.getWidth() - target.getLeft();
     }
 
 }

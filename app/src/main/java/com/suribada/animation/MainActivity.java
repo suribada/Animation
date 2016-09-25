@@ -26,31 +26,37 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.LEFT_TO_RIGHT).setDuration(1500);
+                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.LEFT_IN).setDuration(1500);
                         break;
                     case 1:
-                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.RIGTH_TO_LEFT).setDuration(1500);
+                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.RIGHT_IN).setDuration(1500);
                         break;
                     case 2:
-                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.GROW).setDuration(1500);
+                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.LEFT_OUT).setDuration(1500);
                         break;
                     case 3:
-                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.SHRINK).setDuration(1500);
+                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.RIGHT_OUT).setDuration(1500);
                         break;
                     case 4:
-                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.TRANSPARENT).setDuration(1500);
+                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.GROW).setDuration(1500);
                         break;
                     case 5:
-                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.OPAQUE).setDuration(1500);
+                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.SHRINK).setDuration(1500);
                         break;
                     case 6:
-                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.LEFT_TO_RIGHT, ViewProperty.OPAQUE).setDuration(1500);
+                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.TRANSPARENT).setDuration(1500);
                         break;
                     case 7:
-                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.of(AnimationType.ALPHA).from(0.5f).to(1.0f)).setDuration(1500);
+                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.OPAQUE).setDuration(1500);
                         break;
                     case 8:
-                        target.animate().translationX(2.0f).setDuration(1500);
+                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.LEFT_IN, ViewProperty.OPAQUE).setDuration(1500);
+                        break;
+                    case 9:
+                        ViewProperyAnimatorWrapper.animate(target, ViewProperty.of(AnimationType.ALPHA).from(0.5f).to(1.0f)).setDuration(1500);
+                        break;
+                    case 10:
+                        target.animate().translationX(100).setDuration(1500);
                         break;
                 }
             }

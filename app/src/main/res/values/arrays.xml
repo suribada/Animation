@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="animations">
-        <item >LEFT TO RIGTH</item>
-        <item >RIGTH TO LEFT</item>
+        <item >LEFT IN</item>
+        <item >RIGTH IN</item>
+        <item >LEFT OUT</item>
+        <item >RIGTH OUT</item>
         <item >GROW</item>
         <item >SHRINK</item>
         <item >TRANSPARENT</item>

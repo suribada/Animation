@@ -5,8 +5,10 @@ package com.suribada.animation;
  */
 public class ViewProperty {
 
-    public static ViewProperty LEFT_TO_RIGHT = new ViewProperty(AnimationType.TRANSLATION_X, -1.0f, 0.0f);
-    public static ViewProperty RIGTH_TO_LEFT = new ViewProperty(AnimationType.TRANSLATION_X, 1.0f, 0.0f);
+    public static ViewProperty RIGHT_IN = new ViewProperty(AnimationType.TRANSLATION_X);
+    public static ViewProperty LEFT_IN = new ViewProperty(AnimationType.TRANSLATION_X);
+    public static ViewProperty RIGHT_OUT = new ViewProperty(AnimationType.TRANSLATION_X);
+    public static ViewProperty LEFT_OUT = new ViewProperty(AnimationType.TRANSLATION_X);
     public static ViewProperty GROW = new ViewProperty(AnimationType.SCALE, 0.0f, 1.0f);
     public static ViewProperty SHRINK = new ViewProperty(AnimationType.SCALE, 1.0f, 0.0f);
     public static ViewProperty TRANSPARENT = new ViewProperty(AnimationType.ALPHA, 1.0f, 0.0f);
