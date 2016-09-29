@@ -5,6 +5,10 @@
         <item >RIGTH IN</item>
         <item >LEFT OUT</item>
         <item >RIGTH OUT</item>
+		<item >UP IN</item>
+        <item >DOWN IN</item>
+        <item >UP OUT</item>
+        <item >DOWN OUT</item>
         <item >GROW</item>
         <item >SHRINK</item>
         <item >TRANSPARENT</item>

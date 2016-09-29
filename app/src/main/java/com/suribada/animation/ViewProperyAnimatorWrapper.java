@@ -11,35 +11,49 @@ import android.view.ViewPropertyAnimator;
  */
 public class ViewProperyAnimatorWrapper {
 
-    public static ViewPropertyAnimator animate(View target, ViewProperty... viewProperties) {
+    public static ViewPropertyAnimator animate(View target, ViewPropertyAnim... viewProperties) {
         ViewPropertyAnimator viewPropertyAnimator = target.animate();
-        for (ViewProperty each : viewProperties) {
+        for (ViewPropertyAnim each : viewProperties) {
             switch (each.animationType) {
                 case  ALPHA:
                     target.setAlpha(each.from);
                     viewPropertyAnimator.alpha(each.to);
                     break;
                 case TRANSLATION_X:
-                   if (each == ViewProperty.LEFT_IN) {
+                   if (each == ViewPropertyAnim.LEFT_IN) {
                        target.setTranslationX(-target.getRight());
                         viewPropertyAnimator.translationX(0.0f);
-                    } else if (each == ViewProperty.RIGHT_IN ) {
-                       target.setTranslationX(getDistance(target));
+                    } else if (each == ViewPropertyAnim.RIGHT_IN ) {
+                       target.setTranslationX(getDistanceX(target));
                        viewPropertyAnimator.translationX(0.0f);
-                   } else if (each ==ViewProperty.LEFT_OUT) {
+                   } else if (each == ViewPropertyAnim.LEFT_OUT) {
                        target.setTranslationX(0.0f);
                        viewPropertyAnimator.translationX(-target.getRight());
-                    } else if (each == ViewProperty.RIGHT_OUT) {
+                    } else if (each == ViewPropertyAnim.RIGHT_OUT) {
                         target.setTranslationX(0.0f);
-                        viewPropertyAnimator.translationX(getDistance(target));
+                        viewPropertyAnimator.translationX(getDistanceX(target));
                     } else {
                         target.setTranslationX(each.from);
                         viewPropertyAnimator.translationX(each.to);
                     }
                     break;
                 case TRANSLATION_Y:
-                    target.setTranslationY(each.from);
-                    viewPropertyAnimator.translationY(each.to);
+					if (each == ViewPropertyAnim.UP_IN) {
+						target.setTranslationY(-target.getBottom());
+						viewPropertyAnimator.translationY(0.0f);
+					} else if (each == ViewPropertyAnim.DOWN_IN ) {
+						target.setTranslationY(getDistanceY(target));
+						viewPropertyAnimator.translationY(0.0f);
+					} else if (each == ViewPropertyAnim.UP_OUT) {
+						target.setTranslationY(0.0f);
+						viewPropertyAnimator.translationY(-target.getBottom());
+					} else if (each == ViewPropertyAnim.DOWN_OUT) {
+						target.setTranslationY(0.0f);
+						viewPropertyAnimator.translationY(getDistanceY(target));
+					} else {
+						target.setTranslationY(each.from);
+						viewPropertyAnimator.translationY(each.to);
+					}
                     break;
                 case SCALE:
                     target.setScaleX(each.from);
@@ -52,9 +66,14 @@ public class ViewProperyAnimatorWrapper {
         return viewPropertyAnimator;
     }
 
-    private static int getDistance(View target) {
+    private static int getDistanceX(View target) {
         ViewGroup parent = (ViewGroup) target.getParent();
         return  parent.getWidth() - target.getLeft();
+    }
+
+	private static int getDistanceY(View target) {
+        ViewGroup parent = (ViewGroup) target.getParent();
+        return  parent.getHeight() - target.getTop();
     }
 
 }
