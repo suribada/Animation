@@ -11,13 +11,14 @@ import com.suribada.animation.ViewPropertyAnim.AnimationType;
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spinner;
-    private View target;
+    private View target, target2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         target = findViewById(R.id.target);
+        target2 = findViewById(R.id.target2);
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -67,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 14:
                         target.animate().translationX(100).setDuration(1500);
+                        break;
+					case 15:
+                        target.animate().translationX(100).setDuration(1500);
+                        target2.animate().translationX(-100).setDuration(1500);
                         break;
                 }
             }

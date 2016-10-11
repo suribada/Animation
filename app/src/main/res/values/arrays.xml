@@ -16,5 +16,6 @@
         <item >MULTI ANIM</item>
         <item >CUSTOM ANIM</item>
         <item >NORMAL(No Wrapper)</item>
+        <item >TWO VIEWS</item>
     </string-array>
 </resources>
